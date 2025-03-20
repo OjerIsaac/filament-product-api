@@ -35,6 +35,13 @@ php artisan serve
 
 ---
 
+### **PHP Test**  
+You can run test by running the command  
+```bash
+php artisan test --filter ProductTest
+```
+---
+
 ## **Filament Dashboard Login**  
 
 - **URL**: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)  
