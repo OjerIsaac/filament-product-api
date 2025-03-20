@@ -6,22 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ProductStoreRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
-    /**
-     * Get the validation rules that apply to the request.
-     */
     public function rules(): array
     {
         return [
@@ -31,15 +20,32 @@ class ProductStoreRequest extends FormRequest
         ];
     }
 
-    /**
-     * Get custom messages for validator errors.
-     */
     public function messages(): array
     {
         return [
             'category.required' => 'The category field is required.',
-
             'name.required' => 'The name field is required.',
+        ];
+    }
+
+    /**
+     * Define body parameters for API documentation.
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'name' => [
+                'description' => 'The name of the product',
+                'example' => 'Laptop'
+            ],
+            'category' => [
+                'description' => 'The category of the product',
+                'example' => 'Electronics'
+            ],
+            'status' => [
+                'description' => 'Availability status of the product (true for available, false for unavailable)',
+                'example' => true
+            ]
         ];
     }
 }
